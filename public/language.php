@@ -1,6 +1,5 @@
 <?php
-    require_once 'common.php';
-    require_once 'libs/Smarty.class.php';
+    require_once '../common/common.php';
     
     $changed = false;
     
@@ -20,8 +19,7 @@
         $changed = true;
     }
     
-    $smarty = new Smarty();
-    $smarty->setTemplateDir('tpl');
+    $smarty = create_smarty();
     $smarty->assign('changed', $changed);
     $smarty->assign('languageIds', LANGUAGES);
     $smarty->assign('languageNames', LANGUAGE_NAMES);

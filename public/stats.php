@@ -1,13 +1,7 @@
 <?php
-    require_once 'common.php';
-    require_once 'libs/Smarty.class.php';
+    require_once '../common/common.php';
     
-    $dsn = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8mb4";
-    $db = new PDO($dsn, DB_USERNAME, DB_PASSWORD, [
-        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
-        PDO::ATTR_EMULATE_PREPARES   => false,
-    ]);
+    $db = create_database();
     
     $sql = 'SELECT SUM(ROUND(((DATA_LENGTH + INDEX_LENGTH) / 1024 / 1024), 2)) AS "SIZE IN MB" FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = "' . DB_NAME . '"';
     $stmt = $db->query($sql);
@@ -44,8 +38,7 @@
         $goalCounts[$language] = $stmt->fetchColumn();
     }
     
-    $smarty = new Smarty();
-    $smarty->setTemplateDir('tpl');
+    $smarty = create_smarty();
     $smarty->assign('usage', $usage);
     $smarty->assign('systemCount', $systemCount);
     $smarty->assign('bodyCount', $bodyCount);

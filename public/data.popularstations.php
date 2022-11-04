@@ -1,6 +1,5 @@
 <?php
-    require_once 'common.php';
-    require_once 'libs/Smarty.class.php';
+    require_once '../common/common.php';
 	
 	// Returns full name of the carrier if known.
 	function get_carrier_name($callsign) {
@@ -18,13 +17,8 @@
 			return $name . " " . $callsign;
 		}
 	}
-	
-    $dsn = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8mb4";
-    $db = new PDO($dsn, DB_USERNAME, DB_PASSWORD, [
-        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
-        PDO::ATTR_EMULATE_PREPARES   => false,
-    ]);
+    
+    $db = create_database();
 	
 	$startTime = time() - (60 * 60 * 24);
 	$sql = "
@@ -48,7 +42,6 @@
 	$markets->bindParam(":startTime", $startTime, PDO::PARAM_INT);
 	$markets->execute();
     
-    $smarty = new Smarty();
-    $smarty->setTemplateDir('tpl');
+    $smarty = create_smarty();
 	$smarty->assign('markets', $markets);
     $smarty->display('data.popularstations.tpl');

@@ -1,17 +1,11 @@
 <?php
-    require_once 'common.php';
-    require_once 'libs/Smarty.class.php';
+    require_once '../common/common.php';
 	
 	$now = time();
     
     $tableName = "updates";
     
-    $dsn = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8mb4";
-    $db = new PDO($dsn, DB_USERNAME, DB_PASSWORD, [
-        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
-        PDO::ATTR_EMULATE_PREPARES   => false,
-    ]);
+    $db = create_database();
     
     $archives = [];
     $sql = "SELECT `version`, `date` FROM $tableName ORDER BY `date` DESC";
@@ -134,8 +128,7 @@
     $pageTitle = (isset($_GET['version'])) ? $rows[0]->title . " &mdash; ": "";
 	$isSingleArticle = ($filter_version !== null);
     
-    $smarty = new Smarty();
-    $smarty->setTemplateDir('tpl');
+    $smarty = create_smarty();
     $smarty->assign('pageTitle', $pageTitle);
     $smarty->assign('filter_version', $filter_version);
     $smarty->assign('filter_notes', $filter_notes);

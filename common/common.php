@@ -1,9 +1,32 @@
 <?php
-    require_once 'config.php';
+    require_once '../config.php';
+    require_once '../lib/Smarty.class.php';
     
     define('LANGUAGES', ['en', 'es', 'de', 'fr', 'ru']);
     define('LANGUAGE_NAMES', ['English', 'español', 'Deutsche', 'français', 'русский']);
     define('LS_TO_KM', 299800);
+	
+	function create_smarty() {
+		$appRoot = dirname(dirname(__FILE__));
+       
+        $smarty = new \Smarty();
+        $smarty->setTemplateDir($appRoot . '/templates');
+        $smarty->setCompileDir($appRoot . '/runtime/templates_c');
+        $smarty->setCacheDir($appRoot . '/runtime/cache');
+        
+        return $smarty;
+	}
+	
+	function create_database() {
+		$dsn = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8mb4";
+		$db = new PDO($dsn, DB_USERNAME, DB_PASSWORD, [
+			PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+			PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+			PDO::ATTR_EMULATE_PREPARES   => false,
+		]);
+		
+		return $db;
+	}
 	
 	if (!function_exists('str_ends_with')) {
 		function str_ends_with( $haystack, $needle ) {

@@ -1,13 +1,7 @@
 <?php
-    require_once 'common.php';
-    require_once 'libs/Smarty.class.php';
+    require_once '../common/common.php';
     
-    $dsn = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8mb4";
-    $db = new PDO($dsn, DB_USERNAME, DB_PASSWORD, [
-        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
-        PDO::ATTR_EMULATE_PREPARES   => false,
-    ]);
+    $db = create_database();
     
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT, [
         'options' => [
@@ -33,7 +27,7 @@
 		$sheetId = $res->sheet_id;
 	}
     
-    $smarty = new Smarty();
+    $smarty = create_smarty();
     $smarty->setTemplateDir('tpl');
     $smarty->assign('goal', $goal);
     $smarty->assign('sheetId', $sheetId);
