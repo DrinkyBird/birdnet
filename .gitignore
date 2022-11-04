@@ -1,0 +1,4 @@
+config.php
+scripts/birdnet*.json
+scripts/scrape_config.*
+templates_c/

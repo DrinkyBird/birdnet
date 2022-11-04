@@ -1,0 +1,38 @@
+{extends file="main.tpl"}
+{assign var=title value="{$item->title}"}
+{assign var=description value="{$description}"}
+{if $item->colour}
+{assign var=discord_colour value="#{$item->colour}"}
+{/if}
+{assign var=image value="https://dlc.elitedangerous.com/images/med/{$item->small_image|escape}"}
+{block name=content}
+    <a href="/store">&laquo; Return to store listing</a>
+	{if $item === false}
+		<p>No item with that SKU is known.</p>
+	{else}
+		<h1 class='title'>{$item->title}</h1>
+		<p><a href="https://dlc.elitedangerous.com/product/{$item->slug}">View on the Elite Dangerous store</a></p>
+		<p><b>SKU:</b> <code>{$item->sku}</code></p>
+		<p><b>Current Price:</b> {$item->current_price|number_format}</p>
+		<p><b>Original Price:</b> {$item->original_price|number_format}</p>
+		<p><b>Type:</b> {$item->type}</p>
+		<p><b>Subtype:</b> {$item->subtype}</p>
+		<p><b>Available:</b> {($item->available == 1) ? "Yes" : "No"}</p>
+		<p><b>Thumbnail:</b> <br /> <a href="https://dlc.elitedangerous.com/images/med/{$item->thumbnail|escape}"><img src="https://dlc.elitedangerous.com/images/med/{$item->thumbnail|escape}" /></a></p>
+		<p><b>Image:</b> <br /> <a href="https://dlc.elitedangerous.com/images/med/{$item->image|escape}"><img src="https://dlc.elitedangerous.com/images/med/{$item->image|escape}" /></a></p>
+		<p><b>Small Image:</b> <br /> <a href="https://dlc.elitedangerous.com/images/med/{$item->small_image|escape}"><img src="https://dlc.elitedangerous.com/images/med/{$item->small_image|escape}" /></a></p>
+		<p><b>Colour:</b> <br /> <span style="background-color:#{$item->colour}">#{$item->colour}</span></p>
+		<p>
+			<b>Description:</b>
+			<blockquote>{$item->short_description}</blockquote>
+		</p>
+		<p>
+			<b>Attributes</b>
+			<ul>
+				{foreach $attributes as $id}
+					<li>{$id|get_store_attribute_name}</li>
+				{/foreach}
+			</ul>
+		</p>
+	{/if}
+{/block}

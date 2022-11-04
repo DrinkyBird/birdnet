@@ -1,0 +1,17 @@
+RewriteEngine on
+RewriteRule ^goals$ /goals.php
+RewriteRule ^goals/rss$ /goals.rss.php
+RewriteRule ^goals/(.*)/graph$ /goalgraph.php?id=$1
+RewriteRule ^goals/(.*)$ /goal.php?id=$1
+RewriteRule ^language$ /language.php
+RewriteRule ^rss$ /rss.php
+RewriteRule ^store$ /store.php
+RewriteRule ^store/rss$ /store.rss.php
+RewriteRule ^store/(.*)$ /store.item.php?id=$1
+RewriteRule ^updates$ /updates.php
+RewriteRule ^updates/rss$ /updates.rss.php
+RewriteRule ^plugin$ /plugin.php
+RewriteRule ^data$ /data.php
+RewriteRule ^data/maps$ /data.maps.php
+RewriteRule ^data/graphs$ /data.graphs.php
+RewriteRule ^data/popularstations$ /data.popularstations.php
