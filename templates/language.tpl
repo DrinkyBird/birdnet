@@ -11,6 +11,7 @@
     {/if}
 
     <p>You can change your language for BirdNet here. This only affects the text for Galnet News and Community Goals.</p>
+    <p>Note that community goal progress on non-English languages may lag behind a bit due to poor database design.</p>
     <form action="" method="POST">
         <div class="field">
             <label class="label">Language</label>
