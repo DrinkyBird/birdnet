@@ -1,9 +1,9 @@
 <?php
     require_once '../common/common.php';
-	
-	$now = time();
     
-	$language = get_user_language();
+    $now = time();
+    
+    $language = get_user_language();
     $tableName = "posts_" . $language;
     
     $db = create_database();
@@ -58,7 +58,7 @@
             'default' => $now,
         ]
     ]);
-	$extracts_only = isset($_GET['extractsonly']);
+    $extracts_only = isset($_GET['extractsonly']);
     
     add_filter_clause($filter_title, 'title LIKE CONCAT("%", :title, "%")');
     add_filter_clause($filter_text, 'text LIKE CONCAT("%", :text, "%")');
@@ -119,14 +119,14 @@
     $end = min($offset + $limit, $total);
     
     if ($total > 0) {
-		$sql = "SELECT * FROM $tableName $where_clause ORDER BY date DESC LIMIT $limit OFFSET $offset";
-		$stmt = $db->prepare($sql);
-		add_filter_params($stmt);
-		$stmt->execute();
-		$rows = $stmt->fetchAll();
-	} else {
-		$rows = [];
-	}
+        $sql = "SELECT * FROM $tableName $where_clause ORDER BY date DESC LIMIT $limit OFFSET $offset";
+        $stmt = $db->prepare($sql);
+        add_filter_params($stmt);
+        $stmt->execute();
+        $rows = $stmt->fetchAll();
+    } else {
+        $rows = [];
+    }
     
     function format_timestamp($ts) {
         $f = date('d M Y', $ts);
@@ -148,7 +148,7 @@
     filterurl_add("guid", $filter_guid);
     if ($filter_from != 0) { filterurl_add("from", $filter_from); }
     if ($filter_to != $now) { filterurl_add("to", $filter_to); }
-	if ($extracts_only) { $filter_url .= "&extractsonly"; }
+    if ($extracts_only) { $filter_url .= "&extractsonly"; }
     
     function get_image($row) {
         if ($row->image == null) {
@@ -158,17 +158,17 @@
         $s = explode(",", $row->image);
         return $s[0];
     }
-	
-	function highlight_search($text, $search) {
-		global $filter_text;
-		if ($search === null || empty($search)) {
-			return $text;
-		}
-		return preg_replace("/$search/i", '<span class="highlight">$0</span>', $text);
-	}
+    
+    function highlight_search($text, $search) {
+        global $filter_text;
+        if ($search === null || empty($search)) {
+            return $text;
+        }
+        return preg_replace("/$search/i", '<span class="highlight">$0</span>', $text);
+    }
     
     $pageTitle = (isset($_GET['guid'])) ? $rows[0]->title . " &mdash; ": "";
-	$isSingleArticle = ($filter_guid !== null);
+    $isSingleArticle = ($filter_guid !== null);
     
     $smarty = create_smarty();
     $smarty->assign('pageTitle', $pageTitle);

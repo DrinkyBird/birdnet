@@ -15,7 +15,7 @@
         }
         
         setcookie('birdnet_language', $newlang);
-		$_COOKIE['birdnet_language'] = $newlang;
+        $_COOKIE['birdnet_language'] = $newlang;
         $changed = true;
     }
     

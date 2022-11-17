@@ -5,10 +5,10 @@
     
     $now = time();
     
-	$lang = "en";
-	if (isset($_GET["lang"]) && in_array($_GET["lang"], LANGUAGES, true)) {
-		$lang = $_GET["lang"];
-	}
+    $lang = "en";
+    if (isset($_GET["lang"]) && in_array($_GET["lang"], LANGUAGES, true)) {
+        $lang = $_GET["lang"];
+    }
     
     $table = "goals_" . $lang;
     
@@ -16,8 +16,8 @@
     $stmt = $db->prepare($sql);
     $stmt->bindParam(":now", $now, PDO::PARAM_INT);
     $stmt->execute();
-	
-	header("Content-Type: text/xml");
+    
+    header("Content-Type: text/xml");
     $smarty = create_smarty();
     $smarty->assign('active', $stmt);
     $smarty->assign('language', $lang);

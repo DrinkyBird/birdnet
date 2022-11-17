@@ -1,7 +1,7 @@
 <?php
     require_once '../common/common.php';
-	
-	$now = time();
+    
+    $now = time();
     
     $tableName = "updates";
     
@@ -10,10 +10,10 @@
     $archives = [];
     $sql = "SELECT `version`, `date` FROM $tableName ORDER BY `date` DESC";
     $stmt = $db->query($sql);
-	$archives = [];
-	foreach ($stmt as $row) {
-		$archives[$row->version] = $row->date;
-	}
+    $archives = [];
+    foreach ($stmt as $row) {
+        $archives[$row->version] = $row->date;
+    }
     
     $where_clause = "";
     
@@ -81,14 +81,14 @@
     $end = min($offset + $limit, $total);
     
     if ($total > 0) {
-		$sql = "SELECT * FROM $tableName $where_clause ORDER BY date DESC LIMIT $limit OFFSET $offset";
-		$stmt = $db->prepare($sql);
-		add_filter_params($stmt);
-		$stmt->execute();
-		$rows = $stmt->fetchAll();
-	} else {
-		$rows = [];
-	}
+        $sql = "SELECT * FROM $tableName $where_clause ORDER BY date DESC LIMIT $limit OFFSET $offset";
+        $stmt = $db->prepare($sql);
+        add_filter_params($stmt);
+        $stmt->execute();
+        $rows = $stmt->fetchAll();
+    } else {
+        $rows = [];
+    }
     
     function format_timestamp($ts) {
         $f = date('d M Y', $ts);
@@ -116,17 +116,17 @@
         $s = explode(",", $row->image);
         return $s[0];
     }
-	
-	function highlight_search($text, $search) {
-		global $filter_text;
-		if ($search === null || empty($search)) {
-			return $text;
-		}
-		return preg_replace("/$search/i", '<span class="highlight">$0</span>', $text);
-	}
+    
+    function highlight_search($text, $search) {
+        global $filter_text;
+        if ($search === null || empty($search)) {
+            return $text;
+        }
+        return preg_replace("/$search/i", '<span class="highlight">$0</span>', $text);
+    }
     
     $pageTitle = (isset($_GET['version'])) ? $rows[0]->title . " &mdash; ": "";
-	$isSingleArticle = ($filter_version !== null);
+    $isSingleArticle = ($filter_version !== null);
     
     $smarty = create_smarty();
     $smarty->assign('pageTitle', $pageTitle);

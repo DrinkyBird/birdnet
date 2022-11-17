@@ -5,7 +5,7 @@
     
     $now = time();
     
-	$language = get_user_language();
+    $language = get_user_language();
     $table = "goals_" . $language;
     
     $sql = "SELECT * FROM $table WHERE expiry>:now ORDER BY expiry DESC";
@@ -19,7 +19,7 @@
     $stmt->bindParam(":now", $now, PDO::PARAM_INT);
     $stmt->execute();
     $expired = $stmt->fetchAll();
-	
+    
     $smarty = create_smarty();
     $smarty->assign('active', $active);
     $smarty->assign('expired', $expired);
