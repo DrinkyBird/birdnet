@@ -1,3 +1,5 @@
+# BirdNet uses nginx in production - this is provided for local development on a WAMP/whatever server...
+
 RewriteEngine on
 RewriteRule ^goals$ /goals.php
 RewriteRule ^goals/rss$ /goals.rss.php
