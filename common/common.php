@@ -1,10 +1,9 @@
 <?php
     require_once '../config.php';
     require_once '../lib/Smarty.class.php';
-    
-    define('LANGUAGES', ['en', 'es', 'de', 'fr', 'ru']);
-    define('LANGUAGE_NAMES', ['English', 'español', 'Deutsche', 'français', 'русский']);
-    define('LS_TO_KM', 299800);
+
+    const LANGUAGES = ['en', 'es', 'de', 'fr', 'ru'];
+    const LANGUAGE_NAMES = ['English', 'español', 'Deutsche', 'français', 'русский'];
     
     function create_smarty() {
         $appRoot = dirname(dirname(__FILE__));
@@ -101,25 +100,25 @@
     function smarty_modifier_birdescape($string) {
         return htmlspecialchars($string, ENT_HTML5);
     }
-    
-    define('ECONOMY_NAMES', [
-        '$economy_Agri;'            => "Agriculture",
-        '$economy_Colony;'          => "Colony",
-        '$economy_Extraction;'      => "Extraction",
-        '$economy_HighTech;'        => "High Tech",
-        '$economy_Industrial;'      => "Industrial",
-        '$economy_Military;'        => "Military",
-        '$economy_None;'            => "None",
-        '$economy_Refinery;'        => "Refinery",
-        '$economy_Service;'         => "Service",
-        '$economy_Terraforming;'    => "Terraforming",
-        '$economy_Tourism;'         => "Tourism",
-        '$economy_Prison;'          => "Prison",
-        '$economy_Damaged;'         => "Damaged",
-        '$economy_Rescue;'          => "Rescue",
-        '$economy_Repair;'          => "Repair",
-        '$economy_Carrier;'         => "Private Enterprise"
-    ]);
+
+    const ECONOMY_NAMES = [
+        '$economy_Agri;' => "Agriculture",
+        '$economy_Colony;' => "Colony",
+        '$economy_Extraction;' => "Extraction",
+        '$economy_HighTech;' => "High Tech",
+        '$economy_Industrial;' => "Industrial",
+        '$economy_Military;' => "Military",
+        '$economy_None;' => "None",
+        '$economy_Refinery;' => "Refinery",
+        '$economy_Service;' => "Service",
+        '$economy_Terraforming;' => "Terraforming",
+        '$economy_Tourism;' => "Tourism",
+        '$economy_Prison;' => "Prison",
+        '$economy_Damaged;' => "Damaged",
+        '$economy_Rescue;' => "Rescue",
+        '$economy_Repair;' => "Repair",
+        '$economy_Carrier;' => "Private Enterprise"
+    ];
     
     function get_economy_name($key) {
         if (array_key_exists($key, ECONOMY_NAMES)) {
@@ -128,25 +127,25 @@
             return $key;
         }
     }
-    
-    define ('GOVERNMENT_NAMES', [
-        '$government_Anarchy;'          => 'Anarchy',
-        '$government_Communism;'        => 'Communism',
-        '$government_Confederacy;'      => 'Confederacy',
-        '$government_Cooperative;'      => 'Cooperative',
-        '$government_Corporate;'        => 'Corporate',
-        '$government_Democracy;'        => 'Democracy',
-        '$government_Dictatorship;'     => 'Dictatorship',
-        '$government_Feudal;'           => 'Feudal',
-        '$government_Imperial;'         => 'Imperial',
-        '$government_None;'             => 'None',
-        '$government_Patronage;'        => 'Patronage',
-        '$government_PrisonColony;'     => 'Prison Colony',
-        '$government_Prison;'           => 'Prison',
-        '$government_Theocracy;'        => 'Theocracy',
-        '$government_Engineer;'         => 'Engineer',
-        '$government_Carrier;'          => 'Private Ownership'
-    ]);
+
+    const GOVERNMENT_NAMES = [
+        '$government_Anarchy;' => 'Anarchy',
+        '$government_Communism;' => 'Communism',
+        '$government_Confederacy;' => 'Confederacy',
+        '$government_Cooperative;' => 'Cooperative',
+        '$government_Corporate;' => 'Corporate',
+        '$government_Democracy;' => 'Democracy',
+        '$government_Dictatorship;' => 'Dictatorship',
+        '$government_Feudal;' => 'Feudal',
+        '$government_Imperial;' => 'Imperial',
+        '$government_None;' => 'None',
+        '$government_Patronage;' => 'Patronage',
+        '$government_PrisonColony;' => 'Prison Colony',
+        '$government_Prison;' => 'Prison',
+        '$government_Theocracy;' => 'Theocracy',
+        '$government_Engineer;' => 'Engineer',
+        '$government_Carrier;' => 'Private Ownership'
+    ];
     
     function get_government_name($key) {
         if (array_key_exists($key, GOVERNMENT_NAMES)) {
@@ -155,14 +154,14 @@
             return $key;
         }
     }
-    
-    define ('SECURITY_NAMES', [
+
+    const SECURITY_NAMES = [
         '$GAlAXY_MAP_INFO_state_anarchy;' => 'Anarchy',
         '$GALAXY_MAP_INFO_state_lawless;' => 'Lawless',
         '$SYSTEM_SECURITY_high;' => 'High',
         '$SYSTEM_SECURITY_low;' => 'Low',
         '$SYSTEM_SECURITY_medium;' => 'Medium'
-    ]);
+    ];
     
     function get_security_name($key) {
         if (array_key_exists($key, SECURITY_NAMES)) {
@@ -171,23 +170,23 @@
             return $key;
         }
     }
-    
-    define ('POWERPLAY_IDS', [
-        'Edmund Mahon'      => 'mahon',
-        
-        'Aisling Duval'     => 'duval',
-        'A. Lavigny-Duval'  => 'lavignyduval',
-        'Denton Patreus'    => 'patreus',
-        'Zemina Torval'     => 'torval',
-        
-        'Felicia Winters'   => 'winters',
-        'Zachary Hudson'    => 'hudson',
-        
-        'Archon Delaine'    => 'delaine',
-        'Li Yong-Rui'       => 'yongrui',
-        'Pranav Antal'      => 'antal',
-        'Yuri Grom'         => 'grom'
-    ]);
+
+    const POWERPLAY_IDS = [
+        'Edmund Mahon' => 'mahon',
+
+        'Aisling Duval' => 'duval',
+        'A. Lavigny-Duval' => 'lavignyduval',
+        'Denton Patreus' => 'patreus',
+        'Zemina Torval' => 'torval',
+
+        'Felicia Winters' => 'winters',
+        'Zachary Hudson' => 'hudson',
+
+        'Archon Delaine' => 'delaine',
+        'Li Yong-Rui' => 'yongrui',
+        'Pranav Antal' => 'antal',
+        'Yuri Grom' => 'grom'
+    ];
     
     function get_powerplay_id($name) {
         if (array_key_exists($name, POWERPLAY_IDS)) {
@@ -196,19 +195,19 @@
             return 'none';
         }
     }
-    
-    define ('SURFACE_SIGNAL_NAMES', [
-        '$SAA_SignalType_Biological;'       => 'Biological',
-        '$SAA_SignalType_Geological;'       => 'Geological',
-        '$SAA_SignalType_Guardian;'         => 'Guardian',
-        '$SAA_SignalType_Human;'            => 'Human',
-        '$SAA_SignalType_Thargoid;'         => 'Thargoid',
-        '$SAA_SignalType_Other;'            => 'Other',
-        
-        'LowTemperatureDiamond'             => 'Low Temperature Diamonds',
-        'Opal'                              => 'Void Opals',
-        'tritium'                           => 'Tritium'
-    ]);
+
+    const SURFACE_SIGNAL_NAMES = [
+        '$SAA_SignalType_Biological;' => 'Biological',
+        '$SAA_SignalType_Geological;' => 'Geological',
+        '$SAA_SignalType_Guardian;' => 'Guardian',
+        '$SAA_SignalType_Human;' => 'Human',
+        '$SAA_SignalType_Thargoid;' => 'Thargoid',
+        '$SAA_SignalType_Other;' => 'Other',
+
+        'LowTemperatureDiamond' => 'Low Temperature Diamonds',
+        'Opal' => 'Void Opals',
+        'tritium' => 'Tritium'
+    ];
     
     function get_surface_signal_name($key) {
         if (array_key_exists($key, SURFACE_SIGNAL_NAMES)) {
@@ -217,8 +216,8 @@
             return $key;
         }
     }
-    
-    define ('STORE_ATTRIBUTES', [
+
+    const STORE_ATTRIBUTES = [
         138 => "Adder",
         272 => "Alliance Challenger",
         266 => "Alliance Chieftain",
@@ -263,7 +262,7 @@
         196 => "Viper Mk IV",
         133 => "Vulture",
         297 => "Fleet Carrier",
-        
+
         67 => "Black",
         70 => "Blue",
         62 => "Gold",
@@ -303,7 +302,7 @@
         316 => "Maverick Suit",
         300 => "Carrier Detailing",
         301 => "Carrier ATC",
-    ]);
+    ];
     
     function get_store_attribute_name($id) {
         if (array_key_exists($id, STORE_ATTRIBUTES)) {
@@ -312,15 +311,15 @@
             return strval($id);
         }
     }
-    
-    define('CG_ACTIVITY_NAMES', [
+
+    const CG_ACTIVITY_NAMES = [
         "mining" => "Mining",
         "carto" => "Exploration",
         "combatbond" => "Combat bonds",
         "bounty" => "Bounty hunting",
         "research" => "Data",
         "tradelist" => "Trading",
-    ]);
+    ];
     
     function get_cg_activity_name($id) {
         if (array_key_exists($id, CG_ACTIVITY_NAMES)) {
@@ -330,13 +329,13 @@
         }
     }
 
-    define('RSS_LANGUAGE_MAP', [
+    const RSS_LANGUAGE_MAP = [
         'en' => 'en-GB',
         'es' => 'es-ES',
         'de' => 'de-DE',
         'fr' => 'fr-FR',
         'ru' => 'ru-RU'
-    ]);
+    ];
     
     function get_rss_language($lang) {
         if (array_key_exists($lang, RSS_LANGUAGE_MAP)) {
@@ -347,7 +346,6 @@
     }
     
     function is_discord() {
-        return true;
         return strstr($_SERVER['HTTP_USER_AGENT'], "Discordbot") !== false;
     }
 
