@@ -38,7 +38,6 @@
 					<a class="navbar-item" href='/goals'>Community Goals</a>
 					<a class="navbar-item" href='/store'>Store</a>
 					<a class="navbar-item" href='/updates'>Updates</a>
-					<a class="navbar-item" href='/data'>Data</a>
 				</div>
 				<div class="navbar-end">
 					<a class="navbar-item" href='/language'>Language</a>
