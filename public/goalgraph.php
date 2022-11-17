@@ -28,7 +28,6 @@
     }
     
     $smarty = create_smarty();
-    $smarty->setTemplateDir('tpl');
     $smarty->assign('goal', $goal);
     $smarty->assign('sheetId', $sheetId);
     $smarty->display('goalgraph.tpl');
