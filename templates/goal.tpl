@@ -24,13 +24,15 @@
         <p><b>Ends:</b> {$goal->expiry|date_format:"%F %T %z"}</p>
         <p><b>Activity:</b> {$goal->activity|get_cg_activity_name}</p>
         <p><b>Objective:</b> {$goal->objective}</p>
-        <p>
-            <b>Progress:</b> 
-            {$goal->progress|number_format:0} / {$goal->quantity|number_format:0} ({math equation="x / y * 100" x=$goal->progress y=$goal->quantity format="%.2f"}%)
-            {if $has_chart}
-                (<a href="https://docs.google.com/spreadsheets/d/{$sheetId}/edit">Sheet</a>)
-            {/if}
-        </p>
+        {if $goal->quantity != 0}
+            <p>
+                <b>Progress:</b>
+                {$goal->progress|number_format:0} / {$goal->quantity|number_format:0} ({math equation="x / y * 100" x=$goal->progress y=$goal->quantity format="%.2f"}%)
+                {if $has_chart}
+                    (<a href="https://docs.google.com/spreadsheets/d/{$sheetId}/edit">Sheet</a>)
+                {/if}
+            </p>
+        {/if}
         <progress class="progress{if $goal->progress >= $goal->quantity} is-success{/if}" value="{$goal->progress}" max="{$goal->quantity}"></progress>
         {if $has_chart}<p><b>Progress Graph</b> {if $chart_has_data}(<a href="/goals/{$goal->id}/graph">full screen</a>){/if}</p>
 		<div id="progressChart" style="width: 100%; height: 250px;">
