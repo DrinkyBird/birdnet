@@ -105,3 +105,7 @@
 .highlight {
 	background-color: #FFFF00;
 }
+
+body > section.section {
+	padding-top: 0;
+}
