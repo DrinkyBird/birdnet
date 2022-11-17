@@ -61,9 +61,6 @@
                     <a href="https://github.com/DrinkyBird/birdnet">Source code on GitHub</a>.
 				</p>
                 <p>
-                    Version: {shell_exec("git log -1 --pretty=format:\"%h %aD\"")}
-                </p>
-                <p>
                     This website uses content from <a href="https://elitedangerous.com">Elite Dangerous</a> which is developed by <a href="https://frontier.co.uk">Frontier Developments</a>. <br />This website is not endorsed by nor reflects the views or opinions of Frontier Developments and no employee of Frontier Developments was involved in the making of it.
                 </p>
             </div>
