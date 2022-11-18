@@ -1,6 +1,6 @@
 <?php
     require_once '../config.php';
-    require_once '../lib/smarty/Smarty.class.php';
+    require_once '../lib/smarty/libs/Smarty.class.php';
 
     const LANGUAGES = ['en', 'es', 'de', 'fr', 'ru'];
     const LANGUAGE_NAMES = ['English', 'español', 'Deutsche', 'français', 'русский'];
