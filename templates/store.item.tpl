@@ -21,7 +21,6 @@
 		<p><b>Thumbnail:</b> <br /> <a href="https://dlc.elitedangerous.com/images/med/{$item->thumbnail|escape}"><img src="https://dlc.elitedangerous.com/images/med/{$item->thumbnail|escape}" /></a></p>
 		<p><b>Image:</b> <br /> <a href="https://dlc.elitedangerous.com/images/med/{$item->image|escape}"><img src="https://dlc.elitedangerous.com/images/med/{$item->image|escape}" /></a></p>
 		<p><b>Small Image:</b> <br /> <a href="https://dlc.elitedangerous.com/images/med/{$item->small_image|escape}"><img src="https://dlc.elitedangerous.com/images/med/{$item->small_image|escape}" /></a></p>
-		<p><b>Colour:</b> <br /> <span style="background-color:#{$item->colour}">#{$item->colour}</span></p>
 		<p>
 			<b>Description:</b>
 			<blockquote>{$item->short_description}</blockquote>
