@@ -23,7 +23,7 @@
     $sql = "
         SELECT 
             *,
-            (`current_price` < `original_price`) AS `discounted`
+            (`current_price` < `original_price` AND `available`) AS `discounted`
         FROM `store` 
         WHERE 1 $wherestr
         ORDER BY discounted DESC, `first_seen` DESC
