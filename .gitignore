@@ -2,3 +2,5 @@ config.php
 scripts/birdnet*.json
 scripts/scrape_config.*
 runtime/
+scripts/cg_progress/
+scripts/__pycache__/
