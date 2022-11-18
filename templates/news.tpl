@@ -80,6 +80,18 @@
                     </div>
                 </div>
                 <div class="field">
+                    <label class="label">Start date</label>
+                    <div class="control">
+                        <input class="input" type="date" name="from" value="{$filter_from}" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">End date</label>
+                    <div class="control">
+                        <input class="input" type="date" name="to" value="{$filter_to}" />
+                    </div>
+                </div>
+                <div class="field">
                     <div class="control">
                         <input class="button is-link" type="submit" value="Search" />
                     </div>

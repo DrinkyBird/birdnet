@@ -29,6 +29,19 @@
         return $a[0] < $b[0];
     }
     uasort($archives, "archives_sort");
+	
+	function parse_date($in, $def) {
+		if (is_numeric($in)) {
+			return intval($in);
+		}
+		
+		$parsed = strtotime($in);
+		if ($parsed !== false) {
+			return $parsed;
+		}
+		
+		return $def;
+	}
     
     $where_clause = "";
     
@@ -48,16 +61,10 @@
         ]
     ]);
     
-    $filter_from = filter_input(INPUT_GET, 'from', FILTER_VALIDATE_INT, [
-        'options' => [
-            'default' => 0,
-        ]
-    ]);
-    $filter_to = filter_input(INPUT_GET, 'to', FILTER_VALIDATE_INT, [
-        'options' => [
-            'default' => $now,
-        ]
-    ]);
+    $filter_from = isset($_GET['from']) ? parse_date($_GET['from'], 0) : 0;
+    $filter_to = isset($_GET['to']) ? parse_date($_GET['to'], $now) : $now;
+    $html_from = isset($_GET['from']) ? date('Y-m-d', $filter_from) : '';
+    $html_to = isset($_GET['to']) ? date('Y-m-d', $filter_to) : '';
     $extracts_only = isset($_GET['extractsonly']);
     
     add_filter_clause($filter_title, 'title LIKE CONCAT("%", :title, "%")');
@@ -175,6 +182,8 @@
     $smarty->assign('filter_title', $filter_title);
     $smarty->assign('filter_text', $filter_text);
     $smarty->assign('filter_url', $filter_url);
+    $smarty->assign('filter_from', $html_from);
+    $smarty->assign('filter_to', $html_to);
     $smarty->assign('stmt', $stmt);
     $smarty->assign('archives', $archives);
     $smarty->assign('rows', $rows);
