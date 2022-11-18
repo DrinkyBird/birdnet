@@ -66,6 +66,7 @@
         </div>
         <div class="column is-one-quarter">
             <h2 class="subtitle">Search</h2>
+            <p>All search fields are optional.</p>
             <form action="" method="GET">
                 <div class="field">
                     <label class="label">Title contains</label>
