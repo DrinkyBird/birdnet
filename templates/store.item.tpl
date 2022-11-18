@@ -28,11 +28,22 @@
 		</p>
 		<p>
 			<b>Attributes</b>
-			<ul>
-				{foreach $attributes as $id}
-					<li>{$id|get_store_attribute_name}</li>
-				{/foreach}
-			</ul>
+			<table class="table is-fullwidth is-narrow is-striped">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					{foreach $attributes as $id}
+						<tr>
+							<td>{$id}</td>
+							<td>{$id|get_store_attribute_name}</td>
+						</tr>
+					{/foreach}
+				</tbody>
+			</table>
 		</p>
 	{/if}
 {/block}

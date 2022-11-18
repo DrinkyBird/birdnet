@@ -302,8 +302,8 @@
         316 => "Maverick Suit",
         300 => "Carrier Detailing",
         301 => "Carrier ATC",
-
         317 => "Weapon Customisation",
+
         318 => "Karma P-15",
         319 => "Manticore Executioner",
         320 => "Manticore Oppressor",
