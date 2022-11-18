@@ -302,6 +302,19 @@
         316 => "Maverick Suit",
         300 => "Carrier Detailing",
         301 => "Carrier ATC",
+
+        317 => "Weapon Customisation",
+        318 => "Karma P-15",
+        319 => "Manticore Executioner",
+        320 => "Manticore Oppressor",
+        321 => "Manticore Intimidator",
+        322 => "Manticore Tormentor",
+        323 => "TK Aphelion",
+        324 => "TK Eclipse",
+        325 => "TK Zenith",
+        326 => "Karma L-6",
+        327 => "Karma AR-50",
+        328 => "Karma C-44"
     ];
     
     function get_store_attribute_name($id) {
