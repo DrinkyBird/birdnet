@@ -115,6 +115,7 @@
     $smarty->assign('attributes', $attributes);
     $smarty->assign('filter_name', $filter_name);
     $smarty->assign('filter_available', $filter_available);
+    $smarty->assign('filter_discounted', $filter_discounted);
     $smarty->assign('filter_attributes', $filter_attributes);
     $smarty->display('store.tpl');
 ?>

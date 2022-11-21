@@ -13,6 +13,9 @@
 		{if $filter_available !== null}
 			<span class="tag is-medium">Available: {($filter_available) ? "Yes" : "No"}</span>
 		{/if}
+		{if $filter_discounted !== null}
+			<span class="tag is-medium">Discounted: {($filter_discounted) ? "Yes" : "No"}</span>
+		{/if}
 		{foreach $filter_attributes as $attr}
 			<span class="tag is-medium">Has attribute: {$attr|get_store_attribute_name}</span>
 		{/foreach}
