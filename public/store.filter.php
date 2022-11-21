@@ -1,5 +1,6 @@
 <?php
     require_once '../common/common.php';
+    require_once '../common/store.php';
 
     $filter_attributes = [];
     if (isset($_GET["attribute"]) && is_array($_GET["attribute"])) {

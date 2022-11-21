@@ -1,5 +1,6 @@
 <?php
     require_once '../common/common.php';
+    require_once '../common/store.php';
     
     $db = create_database();
     
