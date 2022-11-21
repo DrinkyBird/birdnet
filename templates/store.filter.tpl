@@ -47,9 +47,17 @@
     <script>
         const tbody = document.getElementById("filtertable-body");
         const filterAttributes = [ {implode(",", $filter_attributes)} ];
-        const STORE_ATTRIBUTES = {
-            {foreach STORE_ATTRIBUTES as $id => $desc}
-                {$id}: "{$desc}",
+        const STORE_ATTRIBUTES_GROUPED = {
+            {foreach STORE_ATTRIBUTES_GROUPED as $group => $values}
+                {if is_array($values)}
+                    "{$group}": {
+                        {foreach $values as $id => $desc}
+                            {$id}: "{$desc}",
+                        {/foreach}
+                    },
+                {else}
+                    {$group}: "{$values}",
+                {/if}
             {/foreach}
         };
 
@@ -110,18 +118,41 @@
             empty.innerText = "-";
             select.appendChild(empty);
 
-            for (const id in STORE_ATTRIBUTES) {
-                const desc = STORE_ATTRIBUTES[id];
-                const option = document.createElement("option");
-                option.value = id;
-                option.innerText = desc;
+            for (const group in STORE_ATTRIBUTES_GROUPED) {
+                const values = STORE_ATTRIBUTES_GROUPED[group];
 
-                if (id == attribute) {
-                    console.info("OK");
-                    option.selected = true;
+                if (typeof values === "object") {
+                    const optgroup = document.createElement("optgroup");
+                    optgroup.label = group;
+
+                    for (const id in values) {
+                        const desc = values[id];
+
+                        const option = document.createElement("option");
+                        option.value = id;
+                        option.innerText = desc;
+
+                        if (id == attribute) {
+                            console.info("OK");
+                            option.selected = true;
+                        }
+
+                        optgroup.appendChild(option);
+                    }
+
+                    select.appendChild(optgroup);
+                } else {
+                    const option = document.createElement("option");
+                    option.value = group;
+                    option.innerText = values;
+
+                    if (group == attribute) {
+                        console.info("OK");
+                        option.selected = true;
+                    }
+
+                    select.appendChild(option);
                 }
-
-                select.appendChild(option);
             }
 
             div.appendChild(select);
