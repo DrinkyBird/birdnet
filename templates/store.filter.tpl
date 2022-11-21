@@ -3,6 +3,14 @@
 {block name=content}
     <h1 class='title'>Build-a-Filter Workshop</h1>
     <p>All fields are optional.</p>
+    <noscript>
+        <article class="message is-warning">
+            <div class="message-body">
+                Attribute filtering is only available when JavaScript is enabled.
+            </div>
+        </article>
+    </noscript>
+
     <form method="get" action="/store">
         <table class="table is-fullwidth">
             <tbody id="filtertable-body">
