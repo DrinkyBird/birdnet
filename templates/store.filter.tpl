@@ -40,7 +40,7 @@
             </tbody>
         </table>
 
-        <input class="button is-primary" type="submit" value="Submit" />
+        <input class="button is-primary" type="submit" value="Apply" />
         <a class="button" href="/store/filter">Reset</a>
     </form>
 
