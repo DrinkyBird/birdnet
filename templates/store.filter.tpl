@@ -58,16 +58,20 @@
         const STORE_ATTRIBUTES_GROUPED = {
             {foreach STORE_ATTRIBUTES_GROUPED as $group => $values}
                 {if is_array($values)}
-                    "{$group}": {
-                        {foreach $values as $id => $desc}
-                            {$id}: "{$desc}",
-                        {/foreach}
-                    },
+                    "{$group}": new Map(),
                 {else}
                     {$group}: "{$values}",
                 {/if}
             {/foreach}
         };
+
+        {foreach STORE_ATTRIBUTES_GROUPED as $group => $values}
+            {if is_array($values)}
+                {foreach $values as $id => $desc}
+                    STORE_ATTRIBUTES_GROUPED["{$group}"].set({$id}, "{$desc}");
+                {/foreach}
+            {/if}
+        {/foreach}
 
         for (let i = 0; i < filterAttributes.length; i++) {
             addRow(filterAttributes[i]);
@@ -133,8 +137,9 @@
                     const optgroup = document.createElement("optgroup");
                     optgroup.label = group;
 
-                    for (const id in values) {
-                        const desc = values[id];
+                    for (const pair of values) {
+                        const id = pair[0];
+                        const desc = pair[1];
 
                         const option = document.createElement("option");
                         option.value = id;

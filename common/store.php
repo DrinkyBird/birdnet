@@ -1,5 +1,5 @@
 <?php
-    const STORE_ATTRIBUTES_GROUPED = [
+    $tempAttributesGrouped = [
         "Ships" => [
             138 => "Adder",
             272 => "Alliance Challenger",
@@ -118,6 +118,15 @@
             317 => "Weapon Customisation",
         ],
     ];
+
+    foreach ($tempAttributesGrouped as $group => $values) {
+        if (is_array($values)) {
+            asort($values);
+            $tempAttributesGrouped[$group] = $values;
+        }
+    }
+
+    define("STORE_ATTRIBUTES_GROUPED", $tempAttributesGrouped);
 
     $tempAttributes = [];
 
