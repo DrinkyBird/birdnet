@@ -5,6 +5,18 @@
     <h1 class='title'>Store Items</h1>
 	<p>{$itemCount|number_format} items</p>
 	<p>Note that greyed out items are currently unavailable.</p>
+	<div>
+		<b>Filter:</b> <a href="store/filter?{$smarty.server.QUERY_STRING}">Edit</a>
+		{if $filter_name !== null}
+			<span class="tag is-medium">Name contains: "{$filter_name}"</span>
+		{/if}
+		{if $filter_available !== null}
+			<span class="tag is-medium">Available: {($filter_available) ? "Yes" : "No"}</span>
+		{/if}
+		{foreach $filter_attributes as $attr}
+			<span class="tag is-medium">Has attribute: {$attr|get_store_attribute_name}</span>
+		{/foreach}
+	</div>
 	{if false}
 	<form action="" method="GET">
         <div class="field">

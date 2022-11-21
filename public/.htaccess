@@ -9,6 +9,7 @@ RewriteRule ^language$ /language.php
 RewriteRule ^rss$ /rss.php
 RewriteRule ^store$ /store.php
 RewriteRule ^store/rss$ /store.rss.php
+RewriteRule ^store/filter$ /store.filter.php
 RewriteRule ^store/(.*)$ /store.item.php?id=$1
 RewriteRule ^updates$ /updates.php
 RewriteRule ^updates/rss$ /updates.rss.php
