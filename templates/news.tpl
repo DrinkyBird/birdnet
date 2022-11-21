@@ -102,7 +102,7 @@
             <h2 class="subtitle">Archives</h2>
             <ul>
             {foreach $archives as $key => $value}
-                <li><a href="?from={$value[0]}&to={$value[1]}">{$key}</a></li>
+                <li><a href="?from={$value[0]|date_format:'%Y-%m-%d'}&to={$value[1]|date_format:'%Y-%m-%d'}">{$key}</a></li>
             {/foreach}
             </ul>
         </div>
