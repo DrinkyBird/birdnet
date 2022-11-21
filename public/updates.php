@@ -108,15 +108,6 @@
     filterurl_add("version", $filter_version);
     filterurl_add("notes", $filter_notes);
     
-    function get_image($row) {
-        if ($row->image == null) {
-            return null;
-        }
-        
-        $s = explode(",", $row->image);
-        return $s[0];
-    }
-    
     function highlight_search($text, $search) {
         global $filter_text;
         if ($search === null || empty($search)) {

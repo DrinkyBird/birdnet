@@ -12,13 +12,7 @@
             {if count($rows) > 0}
 				{foreach $rows as $row}
 					<section class="section news-content">
-						{if $row->image != null}
-						<div class='news-background' style='background-image: url("https://hosting.zaonce.net/elite-dangerous/galnet/{get_image($row)}.png");'>
-							<div class='news-background-title'><a href="?version={$row->version}" class="link"><h2 class='title is-2'>{$row->title|escape}</h2></a></div>
-						</div>
-						{else}
 						<a href="?version={$row->version}" class="link"><h2 class='title is-2'>{$row->title|escape}</h2></a>
-						{/if}
 						<p class='article-date' title='{$row->date|date_format:"%F %T %z"}'>{$row->date|date_format:"%d %b %Y"}</p>
 						<div class='content'>{$row->text}{$row->notes|highlight_search:$filter_notes}</div>
 						{if $is_single_article}
