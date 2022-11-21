@@ -2,6 +2,7 @@
 {assign var=title value="Build-a-Filter Workshop"}
 {block name=content}
     <h1 class='title'>Build-a-Filter Workshop</h1>
+    <p>All fields are optional.</p>
     <form method="get" action="/store">
         <table class="table is-fullwidth">
             <tbody id="filtertable-body">
