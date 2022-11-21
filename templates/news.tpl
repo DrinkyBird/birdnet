@@ -83,13 +83,13 @@
                 <div class="field">
                     <label class="label">Start date</label>
                     <div class="control">
-                        <input class="input" type="date" name="from" value="{$filter_from}" />
+                        <input class="input" type="date" name="from" value="{$filter_from}" min="2014-01-01" max="{$smarty.now|date_format:'%Y-%m-%d'}" />
                     </div>
                 </div>
                 <div class="field">
                     <label class="label">End date</label>
                     <div class="control">
-                        <input class="input" type="date" name="to" value="{$filter_to}" />
+                        <input class="input" type="date" name="to" value="{$filter_to}" min="2014-01-01" max="{$smarty.now|date_format:'%Y-%m-%d'}" />
                     </div>
                 </div>
                 <div class="field">
