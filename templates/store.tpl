@@ -20,20 +20,7 @@
 			<span class="tag is-medium">Has attribute: {$attr|get_store_attribute_name}</span>
 		{/foreach}
 	</div>
-	{if false}
-	<form action="" method="GET">
-        <div class="field">
-            <div class="select">
-                <select name="attribute">
-					{foreach $attributes as $attribute}
-						<option value="{$attribute}">
-							{$attribute|get_store_attribute_name}
-						</option>
-					{/foreach}
-                </select>
-            </div>
-		</div>
-	</form>{/if}
+
 	<table class="table is-fullwidth is-narrow is-striped">
 		<thead>
 			<tr>

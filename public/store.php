@@ -103,17 +103,9 @@
         $itemCount = $items->rowCount();
     }
     
-    $sql = "SELECT `attribute` FROM `store_attributes` GROUP BY `attribute` ORDER BY `attribute` ASC";
-    $stmt = $db->query($sql);
-    $attributes = [];
-    foreach ($stmt as $row) {
-        $attributes[] = $row->attribute;
-    }
-    
     $smarty = create_smarty();
     $smarty->assign('items', $items);
     $smarty->assign('itemCount', $itemCount);
-    $smarty->assign('attributes', $attributes);
     $smarty->assign('filter_name', $filter_name);
     $smarty->assign('filter_available', $filter_available);
     $smarty->assign('filter_discounted', $filter_discounted);
