@@ -98,7 +98,6 @@
             158 => "(?)Tactical Red",
             160 => "(?)Brown",
             295 => "Gleam",
-            296 => "Unknown attribute 296",
             293 => "Stygian",
 			294 => "Midnight Black"
         ],
@@ -119,6 +118,10 @@
             301 => "Carrier ATC",
             317 => "Weapon Customisation",
         ],
+		
+		"Unknown" => [
+            296 => "Unknown attribute 296"
+		]
     ];
 
     foreach ($tempAttributesGrouped as $group => $values) {
