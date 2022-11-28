@@ -98,7 +98,8 @@
             158 => "(?)Tactical Red",
             160 => "(?)Brown",
             295 => "Gleam",
-            296 => "Iridescent",
+            296 => "Unknown attribute 296",
+            293 => "Stygian"
         ],
 
         "Type" => [
