@@ -99,7 +99,8 @@
             160 => "(?)Brown",
             295 => "Gleam",
             296 => "Unknown attribute 296",
-            293 => "Stygian"
+            293 => "Stygian",
+			294 => "Midnight Black"
         ],
 
         "Type" => [
