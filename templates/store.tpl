@@ -24,7 +24,7 @@
 	<table class="table is-fullwidth is-narrow is-striped">
 		<thead>
 			<tr>
-				<th>SKU</th>
+				<th colspan="2">SKU</th>
 				<th>Name</th>
 				<th>Price</th>
 				<th>First Seen</th>
@@ -32,7 +32,7 @@
 		</thead>
 		<tbody>
 			{foreach $items as $item}
-				{if $item->available == 0}
+				{if $item->available === 0}
 					{assign var=class value="has-background-grey-lighter"}
 				{elseif $item->discounted}
 					{assign var=class value="has-background-primary-light"}
@@ -40,10 +40,17 @@
 					{assign var=class value=""}
 				{/if}
 				<tr class="{$class}">
+					<td>
+						{if $item->available === 1}
+							<a href="https://dlc.elitedangerous.com/product/{$item->slug}">
+								<img src="assets/arx.svg" alt="ARX Store" title="View on the Elite Dangerous DLC store" style="width: 1.5em; height: 1.5em;" />
+							</a>
+						{/if}
+					</td>
 					<td><code>{$item->sku}</code></td>
 					<td><a href="/store/{$item->sku}">{$item->title}</a></td>
 					<td>
-						{if $item->current_price != $item->original_price}
+						{if $item->current_price != $item->original_price and $item->available}
 							<s>{$item->original_price}</s> {$item->current_price}
 						{else}
 							{$item->current_price}
