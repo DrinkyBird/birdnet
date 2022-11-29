@@ -3,8 +3,7 @@
 {block name=content}
 	<a href="/store/rss"><img src="/assets/rss.png" title="RSS" alt="RSS" style="width: 2em; height: 2em; float: right;" /></a>
     <h1 class='title'>Store Items</h1>
-	<p>{$itemCount|number_format} items</p>
-	<p>Note that greyed out items are currently unavailable.</p>
+	<p>Note that greyed out rows indicate that item is currently not available for purchase from the game store.</p>
 	<div>
 		<b>Filter:</b> <a href="store/filter?{$smarty.server.QUERY_STRING}">Edit</a>
 		{if $filter_name !== null}
@@ -21,6 +20,7 @@
 		{/foreach}
 	</div>
 
+	{assign var="totalCost" value=0}
 	<table class="table is-fullwidth is-narrow is-striped">
 		<thead>
 			<tr>
@@ -32,6 +32,7 @@
 		</thead>
 		<tbody>
 			{foreach $items as $item}
+				{math equation="x + y" x=$totalCost y=$item->current_price assign="totalCost"}
 				{if $item->available === 0}
 					{assign var=class value="has-background-grey-lighter"}
 				{elseif $item->discounted}
@@ -61,4 +62,6 @@
 			{/foreach}
 		</tbody>
 	</table>
+
+	<p>{$itemCount|number_format} items shown with a total cost of {$totalCost|number_format} Arx (at current prices).</p>
 {/block}
