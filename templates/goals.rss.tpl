@@ -9,7 +9,7 @@
             <item>
                 <title>{$row->title|htmlspecialchars:ENT_XML1}</title>
                 <link>https://elite.drinkybird.net/goals/{$row->id}</link>
-                <guid isPermaLink="false">{$row->id}</guid>
+                <guid isPermaLink="false">net.drinkybird.elite.cg-{$row->id}</guid>
                 <pubDate>{$row->first_seen|date_format:"D, d M Y H:i:s O"}</pubDate>
                 <description><![CDATA[{$row->bulletin|generate_extract}]]></description>
                 <content:encoded><![CDATA[{$row->bulletin|format_text}]]></content:encoded>
