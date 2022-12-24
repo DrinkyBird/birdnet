@@ -1,5 +1,5 @@
 import scrape_config
-import mysql.connector
+import mariadb
 import sys
 import os
 from google.oauth2 import service_account
@@ -11,7 +11,7 @@ import argparse
 import datetime
 import csv
 
-db = mysql.connector.connect(
+db = mariadb.connect(
     host=scrape_config.DB_HOST,
     user=scrape_config.DB_USER,
     password=scrape_config.DB_PASSWORD,

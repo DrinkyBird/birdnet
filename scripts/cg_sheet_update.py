@@ -1,5 +1,5 @@
 import scrape_config
-import mysql.connector
+import mariadb
 import sys
 from google.oauth2 import service_account
 from google.oauth2.credentials import Credentials
@@ -9,7 +9,7 @@ from googleapiclient.errors import HttpError
 import argparse
 import datetime
 
-db = mysql.connector.connect(
+db = mariadb.connect(
     host=scrape_config.DB_HOST,
     user=scrape_config.DB_USER,
     password=scrape_config.DB_PASSWORD,

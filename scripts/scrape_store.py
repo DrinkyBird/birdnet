@@ -1,4 +1,4 @@
-import mysql.connector
+import mariadb
 import requests
 import time
 import math
@@ -10,7 +10,7 @@ from datetime import datetime
 from colorthief import ColorThief
 
 
-db = mysql.connector.connect(
+db = mariadb.connect(
     host=scrape_config.DB_HOST,
     user=scrape_config.DB_USER,
     password=scrape_config.DB_PASSWORD,

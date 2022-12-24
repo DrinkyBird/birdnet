@@ -1,12 +1,12 @@
 import requests
 import json
-import mysql.connector
+import mariadb
 import math
 import time
 import scrape_config
 from datetime import datetime
 
-db = mysql.connector.connect(
+db = mariadb.connect(
     host=scrape_config.DB_HOST,
     user=scrape_config.DB_USER,
     password=scrape_config.DB_PASSWORD,
