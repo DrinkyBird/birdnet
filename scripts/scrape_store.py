@@ -44,6 +44,8 @@ def scrape_store():
         small_image = item['small_image']
         description = item['description']
         short_description = item['short_description']
+        minimum_client_version = item['minimum_client_version']
+        minimum_season = item['minimum_season']
         attributes = item['attribute_list']
         colour = None
         
@@ -67,10 +69,12 @@ def scrape_store():
                     `small_image` = %s,
                     `description` = %s,
                     `short_description` = %s,
+                    `minimum_client_version` = %s,
+                    `minimum_season` = %s,
                     `last_updated` = %s
                 WHERE `sku` = %s
             """
-            vals = (title, current_price, original_price, extra_type, extra_subtype, slug, available, thumbnail, image, small_image, description, short_description, now, sku)
+            vals = (title, current_price, original_price, extra_type, extra_subtype, slug, available, thumbnail, image, small_image, description, short_description, minimum_client_version, minimum_season, now, sku)
             cursor.execute(sql, vals)
         else:
             try:
@@ -84,10 +88,10 @@ def scrape_store():
             
             sql = """
                 INSERT INTO `store`
-                    (`sku`, `title`, `current_price`, `original_price`, `type`, `subtype`, `slug`, `available`, `thumbnail`, `image`, `small_image`, `description`, `short_description`, `first_seen`, `last_updated`, `colour`) 
+                    (`sku`, `title`, `current_price`, `original_price`, `type`, `subtype`, `slug`, `available`, `thumbnail`, `image`, `small_image`, `description`, `short_description`, `minimum_client_version`, `minimum_season`, `first_seen`, `last_updated`, `colour`) 
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             """
-            vals = (sku, title, current_price, original_price, extra_type, extra_subtype, slug, available, thumbnail, image, small_image, description, short_description, now, now, colour)
+            vals = (sku, title, current_price, original_price, extra_type, extra_subtype, slug, available, thumbnail, image, small_image, description, short_description, minimum_client_version, minimum_season, now, now, colour)
             cursor.execute(sql, vals)
         
         for attr in attributes:
