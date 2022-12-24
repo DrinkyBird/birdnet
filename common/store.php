@@ -154,3 +154,29 @@
             return strval($id);
         }
     }
+
+    const STORE_CLIENT_VERSIONS = [
+        38 => "3.8 (Legacy)",
+        40 => "4.0 (Live)"
+    ];
+
+    function get_store_client_version_name($id) {
+        if (array_key_exists($id, STORE_CLIENT_VERSIONS)) {
+            return STORE_CLIENT_VERSIONS[$id];
+        } else {
+            return floor($id) . "." . ($id % 10);
+        }
+    }
+
+    const STORE_SEASONS = [
+        2 => "Horizons",
+        4 => "Odyssey"
+    ];
+
+    function get_store_season_name($id) {
+        if (array_key_exists($id, STORE_SEASONS)) {
+            return STORE_SEASONS[$id];
+        } else {
+            return "Season " . $id;
+        }
+    }

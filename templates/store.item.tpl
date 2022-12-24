@@ -18,6 +18,8 @@
 		<p><b>Type:</b> {$item->type}</p>
 		<p><b>Subtype:</b> {$item->subtype}</p>
 		<p><b>Available:</b> {($item->available == 1) ? "Yes" : "No"}</p>
+		<p><b>Minimum Client Version:</b> {$item->minimum_client_version|get_store_client_version_name}</p>
+		<p><b>Minimum Season:</b> {$item->minimum_season|get_store_season_name}</p>
 		<p><b>Thumbnail:</b> <br /> <a href="https://dlc.elitedangerous.com/images/med/{$item->thumbnail|escape}"><img src="https://dlc.elitedangerous.com/images/med/{$item->thumbnail|escape}" /></a></p>
 		<p><b>Image:</b> <br /> <a href="https://dlc.elitedangerous.com/images/med/{$item->image|escape}"><img src="https://dlc.elitedangerous.com/images/med/{$item->image|escape}" /></a></p>
 		<p><b>Small Image:</b> <br /> <a href="https://dlc.elitedangerous.com/images/med/{$item->small_image|escape}"><img src="https://dlc.elitedangerous.com/images/med/{$item->small_image|escape}" /></a></p>
