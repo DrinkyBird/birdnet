@@ -15,6 +15,12 @@
 		{if $filter_discounted !== null}
 			<span class="tag is-medium">Discounted: {($filter_discounted) ? "Yes" : "No"}</span>
 		{/if}
+		{if $filter_client_version !== null}
+			<span class="tag is-medium">Minimum client version: {$filter_client_version|get_store_client_version_name}</span>
+		{/if}
+		{if $filter_season !== null}
+			<span class="tag is-medium">Minimum season: {$filter_season|get_store_season_name}</span>
+		{/if}
 		{foreach $filter_attributes as $attr}
 			<span class="tag is-medium">Has attribute: {$attr|get_store_attribute_name}</span>
 		{/foreach}

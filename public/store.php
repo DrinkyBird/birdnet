@@ -38,7 +38,17 @@
         } else {
             $filter_attributes = [ $_GET["attribute"] ];
         }
-    }       
+    }
+
+    $filter_client_version = null;
+    if (isset($_GET["client_version"]) && is_numeric($_GET["client_version"])) {
+        $filter_client_version = intval($_GET["client_version"]);
+    }
+
+    $filter_season = null;
+    if (isset($_GET["season"]) && is_numeric($_GET["season"])) {
+        $filter_season = intval($_GET["season"]);
+    }
     
     $wherestr = "";
     if ($filter_name !== null) {
@@ -51,6 +61,14 @@
 
     if ($filter_discounted !== null) {
         $wherestr .= " AND (`current_price` < `original_price`) = :discounted";
+    }
+
+    if ($filter_client_version !== null) {
+        $wherestr .= " AND `minimum_client_version` >= :client_version";
+    }
+
+    if ($filter_season !== null) {
+        $wherestr .= " AND `minimum_season` >= :season";
     }
 
     $attr_params = [];
@@ -91,6 +109,12 @@
     if ($filter_discounted !== null) {
         $items->bindParam(":discounted", $filter_discounted);
     }
+    if ($filter_client_version !== null) {
+        $items->bindParam(":client_version", $filter_client_version);
+    }
+    if ($filter_season !== null) {
+        $items->bindParam(":season", $filter_season);
+    }
     for ($i = 0; $i < count($filter_attributes); $i++) {
         $items->bindParam($attr_params[$i], $filter_attributes[$i]);
     }
@@ -109,6 +133,8 @@
     $smarty->assign('filter_name', $filter_name);
     $smarty->assign('filter_available', $filter_available);
     $smarty->assign('filter_discounted', $filter_discounted);
+    $smarty->assign('filter_client_version', $filter_client_version);
+    $smarty->assign('filter_season', $filter_season);
     $smarty->assign('filter_attributes', $filter_attributes);
     $smarty->display('store.tpl');
 ?>

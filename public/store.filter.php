@@ -21,9 +21,20 @@
         $filter_discounted = $_GET["discounted"];
     }
 
+    $filter_client_version = "";
+    if (isset($_GET["client_version"]) && is_numeric($_GET["client_version"])) {
+        $filter_client_version = intval($_GET["client_version"]);
+    }
+
+    $filter_season = "";
+    if (isset($_GET["season"]) && is_numeric($_GET["season"])) {
+        $filter_season = intval($_GET["season"]);
+    }
+
     $smarty = create_smarty();
     $smarty->assign("filter_attributes", $filter_attributes);
     $smarty->assign("filter_available", $filter_available);
     $smarty->assign("filter_discounted", $filter_discounted);
-    $smarty->assign("STORE_ATTRIBUTES", STORE_ATTRIBUTES);
+    $smarty->assign("filter_client_version", $filter_client_version);
+    $smarty->assign("filter_season", $filter_season);
     $smarty->display("store.filter.tpl");

@@ -25,8 +25,8 @@
                         <div class="select is-fullwidth">
                             <select id="available" name="available">
                                 <option value="">Any</option>
-                                <option value="true" {if $filter_available == "true"}selected{/if}>Available</option>
-                                <option value="false" {if $filter_available == "false"}selected{/if}>Unavailable</option>
+                                <option value="true" {if $filter_available === "true"}selected{/if}>Available</option>
+                                <option value="false" {if $filter_available === "false"}selected{/if}>Unavailable</option>
                             </select>
                         </div>
                     </td>
@@ -38,8 +38,36 @@
                         <div class="select is-fullwidth">
                             <select id="discounted" name="discounted">
                                 <option value="">Any</option>
-                                <option value="true" {if $filter_discounted == "true"}selected{/if}>Yes</option>
-                                <option value="false" {if $filter_discounted == "false"}selected{/if}>No</option>
+                                <option value="true" {if $filter_discounted === "true"}selected{/if}>Yes</option>
+                                <option value="false" {if $filter_discounted === "false"}selected{/if}>No</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <th><label for="client_version">Minimum client</label></th>
+                    <td>
+                        <div class="select is-fullwidth">
+                            <select id="client_version" name="client_version">
+                                <option value="">Any</option>
+                                {foreach STORE_CLIENT_VERSIONS as $id => $name}
+                                    <option value="{$id}" {if $filter_client_version === $id}selected{/if}>{$name}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <th><label for="season">Minimum season</label></th>
+                    <td>
+                        <div class="select is-fullwidth">
+                            <select id="season" name="season">
+                                <option value="">Any</option>
+                                {foreach STORE_SEASONS as $id => $name}
+                                    <option value="{$id}" {if $filter_season === $id}selected{/if}>{$name}</option>
+                                {/foreach}
                             </select>
                         </div>
                     </td>
