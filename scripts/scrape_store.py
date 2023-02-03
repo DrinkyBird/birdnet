@@ -89,7 +89,7 @@ def scrape_store():
             sql = """
                 INSERT INTO `store`
                     (`sku`, `title`, `current_price`, `original_price`, `type`, `subtype`, `slug`, `available`, `thumbnail`, `image`, `small_image`, `description`, `short_description`, `minimum_client_version`, `minimum_season`, `first_seen`, `last_updated`, `colour`) 
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             """
             vals = (sku, title, current_price, original_price, extra_type, extra_subtype, slug, available, thumbnail, image, small_image, description, short_description, minimum_client_version, minimum_season, now, now, colour)
             cursor.execute(sql, vals)
