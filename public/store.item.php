@@ -24,9 +24,12 @@
         }
     }
     
-    $doc = new DomDocument();
-    $doc->loadHTML($item->short_description);
-    $description = $doc->documentElement->childNodes[0]->childNodes[0]->nodeValue;
+    $description = "";
+    if (!empty($item->short_description)) {
+        $doc = new DomDocument();
+        $doc->loadHTML($item->short_description);
+        $description = $doc->documentElement->childNodes[0]->childNodes[0]->nodeValue;
+    }
     
     $smarty = create_smarty();
     $smarty->assign('item', $item);
