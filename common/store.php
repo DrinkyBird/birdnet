@@ -39,6 +39,7 @@
             24 => "Viper Mk III",
             196 => "Viper Mk IV",
             133 => "Vulture",
+            555 => "Python Mk II",
         ],
 
         "Vehicles" => [
@@ -117,6 +118,7 @@
             300 => "Carrier Detailing",
             301 => "Carrier ATC",
             317 => "Weapon Customisation",
+            554 => "Pre-built Ship",
         ],
 		
 		"Unknown" => [
