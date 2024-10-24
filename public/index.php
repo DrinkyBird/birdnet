@@ -62,7 +62,7 @@
     ]);
     
     $filter_from = isset($_GET['from']) ? parse_date($_GET['from'], 0) : 0;
-    $filter_to = isset($_GET['to']) ? parse_date($_GET['to'], $now) + 86340 : $now;
+    $filter_to = isset($_GET['to']) ? parse_date($_GET['to'], $now) + 86400 : $now;
     $html_from = isset($_GET['from']) ? date('Y-m-d', $filter_from) : '';
     $html_to = isset($_GET['to']) ? date('Y-m-d', $filter_to) : '';
     $extracts_only = isset($_GET['extractsonly']);
@@ -71,7 +71,7 @@
     add_filter_clause($filter_text, 'text LIKE CONCAT("%", :text, "%")');
     add_filter_clause($filter_guid, 'guid=:guid');
     add_filter_clause($filter_from, 'date >= :from');
-    add_filter_clause($filter_to, 'date <= :to');
+    add_filter_clause($filter_to, 'date < :to');
     
     function add_filter_param($stmt, $name, $value, $type) {
         if ($value === null) {
