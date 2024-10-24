@@ -40,6 +40,7 @@
             196 => "Viper Mk IV",
             133 => "Vulture",
             555 => "Python Mk II",
+            556 => "Type-8 Transporter",
         ],
 
         "Vehicles" => [
