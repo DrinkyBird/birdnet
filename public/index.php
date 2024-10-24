@@ -63,8 +63,8 @@
     
     $filter_from = isset($_GET['from']) ? parse_date($_GET['from'], 0) : 0;
     $filter_to = isset($_GET['to']) ? parse_date($_GET['to'], $now) + 86400 : $now;
-    $html_from = isset($_GET['from']) ? date('Y-m-d', $filter_from) : '';
-    $html_to = isset($_GET['to']) ? date('Y-m-d', $filter_to) : '';
+    $html_from = isset($_GET['from']) && !empty($_GET['from']) ? date('Y-m-d', $filter_from) : '';
+    $html_to = isset($_GET['to']) && !empty($_GET['to']) ? date('Y-m-d', $filter_to) : '';
     $extracts_only = isset($_GET['extractsonly']);
     
     add_filter_clause($filter_title, 'title LIKE CONCAT("%", :title, "%")');
