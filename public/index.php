@@ -62,7 +62,7 @@
     ]);
     
     $filter_from = isset($_GET['from']) ? parse_date($_GET['from'], 0) : 0;
-    $filter_to = isset($_GET['to']) ? parse_date($_GET['to'], $now) : $now;
+    $filter_to = isset($_GET['to']) ? parse_date($_GET['to'], $now) + 86340 : $now;
     $html_from = isset($_GET['from']) ? date('Y-m-d', $filter_from) : '';
     $html_to = isset($_GET['to']) ? date('Y-m-d', $filter_to) : '';
     $extracts_only = isset($_GET['extractsonly']);
