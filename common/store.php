@@ -82,6 +82,7 @@
         "Colour" => [
             67 => "Black",
             70 => "Blue",
+            61 => "Chromed",
             62 => "Gold",
             66 => "Green",
             65 => "Grey",
@@ -101,7 +102,9 @@
             160 => "(?)Brown",
             295 => "Gleam",
             293 => "Stygian",
-			294 => "Midnight Black"
+			294 => "Midnight Black",
+            558 => "Ruby",
+            290 => "(?)Tan",
         ],
 
         "Type" => [
