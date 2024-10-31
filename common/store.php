@@ -41,7 +41,7 @@
             133 => "Vulture",
             555 => "Python Mk II",
             556 => "Type-8 Transporter",
-            556 => "Mandalay",
+            557 => "Mandalay",
         ],
 
         "Vehicles" => [
