@@ -26,7 +26,13 @@ def scrape_webapi():
     }
     
     params = {
-        "filter[field_game_singular.field_slug]": "elite-dangerous",
+        "filter[game-group][group][conjunction]": "OR",
+        "filter[fa667753-56b8-4fd9-be69-0ec5ecddb5cd][condition][path]": "field_game.id",
+        "filter[fa667753-56b8-4fd9-be69-0ec5ecddb5cd][condition][value]": "fa667753-56b8-4fd9-be69-0ec5ecddb5cd",
+        "filter[fa667753-56b8-4fd9-be69-0ec5ecddb5cd][condition][memberOf]": "game-group",
+        "filter[59e8f3e9-69a6-4b00-863c-da4bbb3667ac][condition][path]": "field_game.id",
+        "filter[59e8f3e9-69a6-4b00-863c-da4bbb3667ac][condition][value]": "59e8f3e9-69a6-4b00-863c-da4bbb3667ac",
+        "filter[59e8f3e9-69a6-4b00-863c-da4bbb3667ac][condition][memberOf]": "game-group",
         "sort": "-published_at",
         "page[limit]": 50
     }
