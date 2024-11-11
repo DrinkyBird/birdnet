@@ -4,6 +4,7 @@ import mariadb
 import math
 import time
 import scrape_config
+import subprocess
 from datetime import datetime
 
 db = mariadb.connect(
@@ -30,6 +31,8 @@ def scrape_webapi(apilang, dblang):
     print(url)
     r = requests.get(url, headers=headers)
     response = r.json()
+
+    fire_webhooks_for = []
     
     for article in response['data']:
         if article['type'] != 'node--galnet_article':
@@ -57,8 +60,12 @@ def scrape_webapi(apilang, dblang):
             sql = "INSERT INTO `posts_"+dblang+"` (guid, title, text, date, appeared, image, slug) VALUES (%s, %s, %s, %s, %s, %s, %s)"
             vals = (guid, title, text, timestamp, time.time(), image, slug)
             cursor.execute(sql, vals)
+            fire_webhooks_for.append(guid)
         
     db.commit()
+
+    for guid in fire_webhooks_for:
+        subprocess.run(["python3", "post_discord_webhook.py", guid, dblang])
 
 if __name__ == "__main__":
     scrape_webapi("en-GB", "en")
