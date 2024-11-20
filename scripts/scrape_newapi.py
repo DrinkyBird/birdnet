@@ -65,7 +65,7 @@ def scrape_webapi(apilang, dblang):
     db.commit()
 
     for guid in fire_webhooks_for:
-        subprocess.run(["python3", "post_discord_webhook.py", guid, dblang])
+        subprocess.run(["python3", "scripts/post_discord_webhook.py", guid, dblang])
 
 if __name__ == "__main__":
     scrape_webapi("en-GB", "en")
