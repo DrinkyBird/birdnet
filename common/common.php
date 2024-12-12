@@ -104,6 +104,7 @@
         "bounty" => "Bounty hunting",
         "research" => "Data",
         "tradelist" => "Trading",
+        "titandestruction" => "Thargoid Titan destruction",
     ];
     
     function get_cg_activity_name($id) {

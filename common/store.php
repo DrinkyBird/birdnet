@@ -42,6 +42,7 @@
             555 => "Python Mk II",
             556 => "Type-8 Transporter",
             557 => "Mandalay",
+            559 => "Cobra Mk V",
         ],
 
         "Vehicles" => [
