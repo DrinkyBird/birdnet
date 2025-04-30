@@ -43,6 +43,7 @@
             556 => "Type-8 Transporter",
             557 => "Mandalay",
             559 => "Cobra Mk V",
+            697 => "Corsair",
         ],
 
         "Vehicles" => [
@@ -79,6 +80,13 @@
 
         "Fleet Carriers" => [
             297 => "Drake-class Carrier",
+        ],
+
+        "Starports" => [
+            696 => "Orbis Starport",
+            698 => "Coriolis Starport",
+            699 => "Ocellus Starport",
+            701 => "Outpost",
         ],
 
         "Colour" => [
@@ -125,6 +133,7 @@
             301 => "Carrier ATC",
             317 => "Weapon Customisation",
             554 => "Pre-built Ship",
+            695 => "Station Customisation",
         ],
 		
 		"Unknown" => [
