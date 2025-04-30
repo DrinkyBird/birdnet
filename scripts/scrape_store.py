@@ -5,6 +5,7 @@ import math
 import re
 import scrape_config
 import os
+import traceback
 from xml.etree import ElementTree
 from datetime import datetime
 from colorthief import ColorThief
@@ -36,7 +37,7 @@ def scrape_store():
         current_price = item['current_price']
         original_price = item['original_price']
         extra_type = item['extra_type']
-        extra_subtype = item['extras_subtype']
+        extra_subtype = 0
         slug = item['url_key']
         available = item['available']
         thumbnail = item['thumbnail']
